@@ -17,11 +17,10 @@ class Listado extends React.Component{
     item(data){
         return(
             data.map(item=>
-
                 <div className="col-3">
                         <div className="ProductCard">
                             <div className="ProductCard-image">
-                                <img src="https://oechsle.vteximg.com.br/arquivos/ids/2932928/1792953.jpg" width="250px" height="250px"/>
+                                <img src={item.image} width="250px" height="250px"/>
                             </div>
                             <div className="detalle">
 
@@ -30,10 +29,10 @@ class Listado extends React.Component{
                                     {item.productId}
                                     </span>
                                     <span class="ProductName-alt">
-                                        GENERO
+                                    {item.productName}
                                             <span class="ProductName-separator">•
                                             </span>
-                                        COLOR
+                                            {'S/ ' + item.price}
                                     </span>
                                     </span>
 
@@ -49,6 +48,8 @@ class Listado extends React.Component{
         );
     }
 
+    
+
     render() {
         const {list} = this.props 
         return (
@@ -57,6 +58,17 @@ class Listado extends React.Component{
           </div>
         );
       }
+
+      /*                   
+      <div className="cards">
+        <div className="content-card">
+            <div className="img">
+                <img src={item.image} width="50" height="50"/>
+            </div>
+    <div className="detalle">
+        <p>
+            {item.productId} {item.productName} {'S/ ' + item.price}
+            </p>*/
 
 }
 

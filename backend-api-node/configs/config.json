@@ -1,0 +1,11 @@
+{
+    "LOCAL": {
+        "PORT": 8080,
+        "CREDENTIALS":{
+            "GOOGLE_CLOUD":{
+                "PROJECT_ID": "ir-hkt-equipo-03",
+                "KEY": "AIzaSyAqO5UAIQ2TQZG_tKhp2W2Jc8F3vov9Wx8"
+            }
+        }
+    }
+}

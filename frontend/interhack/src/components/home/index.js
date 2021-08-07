@@ -6,10 +6,16 @@ import Listado from '../listado/listado';
 
 function Index() {
   const [setData] = useState('');
+  var data = []
+  var resultados =  localStorage.getItem('resultados_busqueda');
+  resultados = JSON.parse(resultados);
   const large = '/assets/banner-hombre.png';
   const small = 'https://oechsle.vteximg.com.br/arquivos/slider-landing-lamesanosune-0208-mobile.png';
 
-  const data = [
+  if(resultados){
+    data = resultados;
+  }else{
+    data = [
       {
         "ropa": "abrigo"
       },
@@ -24,6 +30,9 @@ function Index() {
       }
   ]
 
+  }
+
+  
   return (
     <div className="App">
       <Head/>

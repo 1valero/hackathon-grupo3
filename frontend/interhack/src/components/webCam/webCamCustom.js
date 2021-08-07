@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component,useState } from "react";
 import Webcam from "react-webcam";
 
 
@@ -23,6 +23,9 @@ class WebCamCustom extends Component {
   constructor(props) {
     super(props);
     this.webcamRef = React.createRef();
+    this.handleChange = this.handleChange.bind(this);
+    //this.fileInput = React.createRef();
+
   }
 
   state = {
@@ -106,6 +109,19 @@ class WebCamCustom extends Component {
     }
   };
 
+  
+  handleChange(event) {
+    event.preventDefault();
+    console.log(`Selected file - ${event.target.files[0].name}`);
+    //var reader = new FileReader();
+    //reader.readAsDataURL(event.target.files[0])
+    toBase64(event.target.files[0])
+    .then((result) =>{
+        console.log(result);
+    });
+  }
+
+
   render() {
     return (
       <>
@@ -121,9 +137,15 @@ class WebCamCustom extends Component {
           videoConstraints={videoConstraints} //cameraSetting,eg:resolution, use which camera
           // onUserMedia={(e) => console.log(e)} // show info of media stream
         />
-        <div>
-            <button onClick={this.capturePhoto}>Tomar foto</button>
+        <div style={{display: 'flex'}}>
+            <div style={{width: '50%', marginRight:'16px'}}>
+                <button style={{float: 'right'}} onClick={this.capturePhoto}>Tomar foto</button>
+            </div>
+            <div style={{width: '50%'}}>
+                <input type="file" name="file" style={{float: 'left'}} onChange={this.handleChange} />
+            </div>
         </div>
+        
         {/*this.state.URLArray.map((x) => (
           <div id={x}>
             <img

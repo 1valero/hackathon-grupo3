@@ -1,0 +1,4 @@
+node_modules/
+configs/.env
+configs/vision-key.json
+test/
