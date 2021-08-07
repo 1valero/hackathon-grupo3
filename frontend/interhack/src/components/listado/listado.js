@@ -24,7 +24,7 @@ class Listado extends React.Component{
                             </div>
                             <div className="detalle">
                                 <p>
-                                    {item.ropa} ropa de hombre - abrigo azul 
+                                    {item.productId} ropa de hombre - abrigo azul 
                                 </p>
                                 <div className="content-button">
                                     <button style={{marginRight: '16px'}} onClick={this.handleSubmit}>Comprar</button>

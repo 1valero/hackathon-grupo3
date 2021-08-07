@@ -116,3 +116,13 @@ body{
 .home{
     font-size: 25px;
 }
+
+.webCam{
+  width:50%;
+  height: 50%;
+  @media screen and (max-width: 600px) {
+      width:80%;
+      height: 80%;
+    
+  }
+}

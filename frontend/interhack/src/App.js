@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/home/index';
 import Detalle from './components/detalle';
 import Camera from './components/webCam/index';
+import ListadoProducto from './components/listadoProductos/listadoProductos';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
           </Route>
           <Route path="/camera">
             <Camera />
+          </Route>
+          <Route path="/resultados">
+            <ListadoProducto/>
           </Route>
           <Route path="/">
             <Home />
