@@ -24,7 +24,7 @@ class head extends React.Component{
           <div className="head">
                 <div className="topnav">
                   <div style={{width: '20%'}}>
-                    <img src="/assets/logo.png" width="86" height="44"/>
+                    <a href="" title="inicio"><img src="/assets/logo.png" width="86" height="44"/></a>
                   </div>
                   <div style={{width: '60%'}}>
                     <div className="search-container">

@@ -161,3 +161,20 @@ body{
   max-width: 1000px;
   margin: auto;
 }
+
+@media only screen and (max-width: 1200px){
+  .ft-box-social .container {
+      display: block;
+      padding-top: 0;
+      border-top: 0;
+  }}
+  
+  @media only screen and (max-width: 1200px){
+  .ft-box-social .container .img-footer-payment {
+      margin-bottom: 20px!important;
+  }}
+  
+  @media only screen and (max-width: 1200px){
+  .ft-box-social .container p {
+      margin: 20px 0!important;
+  }}
