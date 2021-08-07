@@ -13,6 +13,10 @@ function CarritoCompras() {
     if(carrito_storage){
       data = carrito_storage;
     }
+
+    function handleSubmitComprar() {
+        window.location.href='/checkout'
+      }
   
     return (
       <div className="App">
@@ -27,6 +31,7 @@ function CarritoCompras() {
                   boolCarrito="true"
                   list={data}/>
               </div>
+              <button className="btn-oe btn-oe-addtocart" onClick={() => {handleSubmitComprar()}}>Comprar</button>
           </section>
         </div>
         
