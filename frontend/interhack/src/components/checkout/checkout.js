@@ -9,11 +9,11 @@ function checkout() {
 <Head/>
 <div className="checkout">
 
-<div className="react-home react-checkout">
-            <div className="react-input-box">
+<div className="">
+            <div className="">
 
-                <div className="container">
-                    <div className="stepwizard">
+                <div className="">
+                    <div className="">
                         <div className="row step-row">
                             <div className="col-4">
                                 <a className="btn btn-primary button-no-gradient btn-circle btn-step">1</a>
@@ -41,7 +41,7 @@ function checkout() {
       <form action="">
         <div className="row2">
           <div className="col-50">
-            <h3>Billing Address</h3>
+            <h3>Dirección de Envío</h3>
             <label for="fname"><i className="fa fa-user"></i> Full Name</label>
             <input type="text"  placeholder="John M. Doe"/>
             <label for="email"><i className="fa fa-envelope"></i> Email</label>
@@ -64,7 +64,7 @@ function checkout() {
           </div>
 
           <div className="col-50">
-            <h3>Payment</h3>
+            <h3>Método de Pago</h3>
             <label for="fname">Accepted Cards</label>
             <div className="icon-container">
               <i className="fa fa-cc-visa"></i>
@@ -100,7 +100,7 @@ function checkout() {
   </div>
   <div className="col-25">
     <div className="container">
-      <h4>Cart <span className="price"><i className="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+      <h4>Resumen <span className="price"><i className="fa fa-shopping-cart"></i> <b>4</b></span></h4>
       <p><a href="#">Product 1</a> <span className="price">$15</span></p>
       <p><a href="#">Product 2</a> <span className="price">$5</span></p>
       <p><a href="#">Product 3</a> <span className="price">$8</span></p>
