@@ -122,7 +122,7 @@ class Detalle extends React.Component{
                 </div>               
                 
                 
-                <button className="btn-oe btn-oe-addtocart" onClick={() => {this.handleSubmitAgregar(item)}}>Agregar a Carritot</button>
+                <button className="btn-oe btn-oe-addtocart" onClick={() => {this.handleSubmitAgregar(item)}}>Agregar a Carrito</button>
 
               </div>
 

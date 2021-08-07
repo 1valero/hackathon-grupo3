@@ -25,7 +25,6 @@ class WebCamCustom extends Component {
     this.webcamRef = React.createRef();
     this.handleChange = this.handleChange.bind(this);
     //this.fileInput = React.createRef();
-
   }
 
   state = {
@@ -60,40 +59,77 @@ class WebCamCustom extends Component {
 
   capturePhoto = () => {
     const imageSrc = this.webcamRef.current.getScreenshot();
+    const file = this.dataURItoBlob(imageSrc);
+    console.log(file);
+    //const formData = new FormData();
+    //formData.append('upload', file, 'image.jpg') 
     //this.compressPhoto(imageSrc);
-    this.getImage(imageSrc);
-  };
-  getImage(pic){
-    this.setState({ url: pic}, () =>
-        this.savePhoto()
-    );
-  }
+    this.getImage(file);
+    };
+    
+    getImage(pic){
+      this.setState({ url: pic}, () =>
+          this.savePhoto()
+      );
+    }
+
+  dataURItoBlob(dataURI) {
+    // convert base64/URLEncoded data component to raw binary data held in a string
+    var byteString;
+    if (dataURI.split(',')[0].indexOf('base64') >= 0)
+        byteString = atob(dataURI.split(',')[1]);
+    else
+        byteString = unescape(dataURI.split(',')[1]);
+
+    // separate out the mime component
+    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+    // write the bytes of the string to a typed array
+    var ia = new Uint8Array(byteString.length);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+
+    return new Blob([ia], {type:mimeString});
+}
 
   savePhoto = () => {
     var imageSrc = this.state.url;
-    console.log(imageSrc);
     /*this.setState((prevState) => ({
         URLArray: [...prevState.URLArray, imageSrc]
       }));*/
-      this.getImage(imageSrc);
+      this.request(imageSrc);
   };
 
-  getImage = (imageSrc) => {
-    return fetch('https://ir-hkt-equipo-03.rj.r.appspot.com/product/search/by-image',{
+    
+  handleChange(event) {
+    this.request(event.target.files[0]);
+  }
+
+  request(img){
+    
+    console.log("getImage");
+    console.log(img);
+    var formData = new FormData();
+    formData.append("file", img);
+
+    fetch('https://ir-hkt-equipo-03.rj.r.appspot.com/product/search/by-image',{
+        crossDomain:true,
         method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({
-          url: 'https://oechsle.vteximg.com.br/arquivos/ids/4116074-800-800/1584075.jpg?v=637610764419600000',
-          //url: imageSrc
-        })
+        headers: {
+          //'Content-Type': 'multipart/form-data',
+        },
+        body: 
+          //url: 'https://oechsle.vteximg.com.br/arquivos/ids/4116074-800-800/1584075.jpg?v=637610764419600000',
+          formData
+        
     })
       .then((response) => response.json())
-      .then((json) => {
-          console.log(json.success.data);
-          localStorage.setItem("resultados_busqueda", JSON.stringify(json.success.data))
-          window.location.href='/resultados';
-        return json.movies;
-      })
+        .then((json) => {
+            console.log(json.success.data);
+            localStorage.setItem("resultados_busqueda", JSON.stringify(json.success.data))
+            window.location.href='/resultados';
+        })
       .catch((error) => {
         console.error(error);
       });
@@ -108,19 +144,6 @@ class WebCamCustom extends Component {
       this.setState({ URLArray: newURLArray });
     }
   };
-
-  
-  handleChange(event) {
-    event.preventDefault();
-    console.log(`Selected file - ${event.target.files[0].name}`);
-    //var reader = new FileReader();
-    //reader.readAsDataURL(event.target.files[0])
-    toBase64(event.target.files[0])
-    .then((result) =>{
-        console.log(result);
-        this.getImage(result);
-    });
-  }
 
 
   render() {
