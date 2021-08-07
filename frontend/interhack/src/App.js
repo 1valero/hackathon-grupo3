@@ -10,6 +10,7 @@ import Home from './components/home/index';
 import Detalle from './components/detalle';
 import Camera from './components/webCam/index';
 import ListadoProducto from './components/listadoProductos/listadoProductos';
+import Carrito from './components/carritoCompras/carritoCompras';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/resultados">
             <ListadoProducto/>
+          </Route>
+          <Route path="/carrito">
+            <Carrito/>
           </Route>
           <Route path="/">
             <Home />

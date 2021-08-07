@@ -118,6 +118,7 @@ class WebCamCustom extends Component {
     toBase64(event.target.files[0])
     .then((result) =>{
         console.log(result);
+        this.getImage(result);
     });
   }
 

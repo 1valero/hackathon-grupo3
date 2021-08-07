@@ -17,16 +17,24 @@ function Index() {
   }else{
     data = [
       {
-        "ropa": "abrigo"
+        "ropa": "abrigo",
+        "price": 34.95,
+        "link": "https://www.oechsle.pe/babycircus-poleron-para-nina-b-1556060/p",
       },
       {
-        "ropa": "gorro2"
+        "ropa": "gorro2",
+        "price": 34.95,
+        "link": "https://www.oechsle.pe/babycircus-poleron-para-nina-b-1556060/p",
       },
       {
-        "ropa": "gorro3"
+        "ropa": "gorro3",
+        "price": 34.95,
+        "link": "https://www.oechsle.pe/babycircus-poleron-para-nina-b-1556060/p",
       },
       {
-        "ropa": "gorro4"
+        "ropa": "gorro4",
+        "price": 34.95,
+        "link": "https://www.oechsle.pe/babycircus-poleron-para-nina-b-1556060/p",
       }
   ]
 
@@ -58,9 +66,6 @@ function Index() {
       <img src="https://oechsle.vteximg.com.br/arquivos/slider-regular-SPH-laptop-0308-desktop-e.png"/>
 		</section>  
     </div>
-
-
-
     <div className="row">
     <section className="banner-sec">
       <h2 className="title-category">Colecciones destacadas</h2>
