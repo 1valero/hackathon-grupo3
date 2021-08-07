@@ -5,10 +5,12 @@ import './style/grid.css';
 import './style/footer.css';
 import './style/listado.css';
 import './style/index.scss';
+import './style/checkout.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/home/index';
 import Detalle from './components/detalle';
 import Camera from './components/webCam/index';
+import Checkout from './components/checkout/checkout';
 import ListadoProducto from './components/listadoProductos/listadoProductos';
 import Carrito from './components/carritoCompras/carritoCompras';
 
@@ -28,6 +30,9 @@ function App() {
           </Route>
           <Route path="/carrito">
             <Carrito/>
+          </Route>
+          <Route path="/checkout">
+            <Checkout/>
           </Route>
           <Route path="/">
             <Home />
