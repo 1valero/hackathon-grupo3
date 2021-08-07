@@ -7,6 +7,7 @@ import Head from './head/head';
 class Detalle extends React.Component{
 
   state = {
+    carrito: [],
     products: [
       {
         "_id": "1",
@@ -44,6 +45,27 @@ class Detalle extends React.Component{
   componentDidMount(){
     const {index} = this.state;
     this.myRef.current.children[index].className = "active";
+
+    var carrito_storage =  localStorage.getItem('carrito');
+    if(carrito_storage){
+        carrito_storage = JSON.parse(carrito_storage);
+        this.setState((prevState) => ({
+            carrito: carrito_storage
+          }));
+    }
+  }
+
+  handleSubmitAgregar(item) {
+      //window.location.href='/detalle'
+      var carrito_storage = [];
+      this.setState((prevState) => ({
+          carrito: [...prevState.carrito, item]
+        }));
+
+        carrito_storage = [ ...this.state.carrito, item];
+      
+      localStorage.setItem("carrito", JSON.stringify(carrito_storage));
+
   }
 
 
@@ -100,7 +122,7 @@ class Detalle extends React.Component{
                 </div>               
                 
                 
-                <button className="btn-oe btn-oe-addtocart">Add to cart</button>
+                <button className="btn-oe btn-oe-addtocart" onClick={() => {this.handleSubmitAgregar(item)}}>Agregar a Carritot</button>
 
               </div>
 

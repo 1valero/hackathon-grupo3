@@ -6,7 +6,6 @@ class Listado extends Component{
         this.state = {
             carrito: []
         }
-        this.carrito = [];
         this.handleSubmitAgregar = this.handleSubmitAgregar.bind(this);
     }
 
