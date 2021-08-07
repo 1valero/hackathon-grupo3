@@ -1,5 +1,5 @@
 .ft-box-social .container {
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
     align-items: center;
     border-top: 1px solid rgba(255,255,255,.25);

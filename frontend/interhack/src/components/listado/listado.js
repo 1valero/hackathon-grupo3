@@ -20,11 +20,11 @@ class Listado extends React.Component{
                     <div className="cards">
                         <div className="content-card">
                             <div className="img">
-                                <img src="/assets/abrigo-azul.jpg" width="50" height="50"/>
+                                <img src={item.image} width="50" height="50"/>
                             </div>
                             <div className="detalle">
                                 <p>
-                                    {item.productId} ropa de hombre - abrigo azul 
+                                    {/*item.productId*/} {item.productName} {'S/ ' + item.price}
                                 </p>
                                 <div className="content-button">
                                     <button style={{marginRight: '16px'}} onClick={this.handleSubmit}>Comprar</button>
