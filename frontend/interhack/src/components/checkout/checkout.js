@@ -1,19 +1,47 @@
-
+import Head from '../head/head';
+import Footer from '../footer/footer';
 import React from 'react';
 
 function checkout() {
     return (
+
 <div>
-<h2>Responsive Checkout Form</h2>
-<p>Resize the brow2ser window to see the effect. When the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other.</p>
+<Head/>
+<div className="checkout">
+
+<div className="">
+            <div className="">
+
+                <div className="">
+                    <div className="">
+                        <div className="row step-row">
+                            <div className="col-4">
+                                <a className="btn btn-primary button-no-gradient btn-circle btn-step">1</a>
+                                <p>Detalle</p>
+                            </div>
+                            <div className="col-4">
+                                <a className="btn btn-default button-no-gradient btn-circle" disabled="disabled">2</a>
+                                <p>Resumen</p>
+                            </div>
+                            <div className="col-4">
+                                <a className="btn btn-default button-no-gradient btn-circle" disabled="disabled">3</a>
+                                <p>Compra</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+
+<h2>PÁGINA DE PAGO</h2>
+<p>COMPRA TOTALMENTE SEGURA.</p>
 <div className="row2">
   <div className="col-75">
     <div className="container">
       <form action="">
-      
         <div className="row2">
           <div className="col-50">
-            <h3>Billing Address</h3>
+            <h3>Dirección de Envío</h3>
             <label for="fname"><i className="fa fa-user"></i> Full Name</label>
             <input type="text"  placeholder="John M. Doe"/>
             <label for="email"><i className="fa fa-envelope"></i> Email</label>
@@ -36,7 +64,7 @@ function checkout() {
           </div>
 
           <div className="col-50">
-            <h3>Payment</h3>
+            <h3>Método de Pago</h3>
             <label for="fname">Accepted Cards</label>
             <div className="icon-container">
               <i className="fa fa-cc-visa"></i>
@@ -72,7 +100,7 @@ function checkout() {
   </div>
   <div className="col-25">
     <div className="container">
-      <h4>Cart <span className="price"><i className="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+      <h4>Resumen <span className="price"><i className="fa fa-shopping-cart"></i> <b>4</b></span></h4>
       <p><a href="#">Product 1</a> <span className="price">$15</span></p>
       <p><a href="#">Product 2</a> <span className="price">$5</span></p>
       <p><a href="#">Product 3</a> <span className="price">$8</span></p>
@@ -82,10 +110,9 @@ function checkout() {
     </div>
   </div>
 </div>
-      
-      
-      
-      </div>
+</div>
+<Footer/>  
+</div>
 
     );
   }
