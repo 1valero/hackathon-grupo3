@@ -24,9 +24,10 @@ class Listado extends React.Component{
                                 <img src="https://oechsle.vteximg.com.br/arquivos/ids/2932928/1792953.jpg" width="250px" height="250px"/>
                             </div>
                             <div className="detalle">
+
                                 <span class="ProductName">
                                     <span class="ProductName-primary">
-                                    {item.ropa}
+                                    {item.productId}
                                     </span>
                                     <span class="ProductName-alt">
                                         GENERO
