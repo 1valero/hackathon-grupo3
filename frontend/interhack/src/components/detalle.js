@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Footer from './footer/footer';
 import Colors from '../components/Colors'
 import DetailsThumb from '../components/DetailsThumb';
 import Head from './head/head';
@@ -116,13 +116,16 @@ class Detalle extends React.Component{
               <h3 className="title center">DETALLE DEL PRODUCTO</h3><p>{item.description}</p>
               <h4 className="title center">TÉCNOLOGÍA</h4><p>{item.content}</p>
             </div>
-            
+         
+                      <Footer/>
+                         
             
             </div>
-            
+
           ))
         }
       </div>
+
     );
   };
 }
