@@ -119,6 +119,18 @@
     margin-bottom: 20px;
   }
 
+  .btn-oe-pay{
+    border-radius: 6px;
+    line-height: 1;
+    color: #fff;
+    background-color: #f93449;
+    width: 100%;
+    max-width: 214px;
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 
   *, ::after, ::before {
     box-sizing: border-box;
@@ -266,6 +278,9 @@ margin-top: 0;
 max-width: 100%;
 border-radius:0px;
 width: 100%;}
+
+
+
 
 .pdp-images .thumbs-positopm {
     left: 20%;}

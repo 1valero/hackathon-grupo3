@@ -17,23 +17,33 @@ class Listado extends React.Component{
     item(data){
         return(
             data.map(item=>
-                    <div className="cards">
-                        <div className="content-card">
-                            <div className="img">
-                                <img src="/assets/abrigo-azul.jpg" width="50" height="50"/>
+
+                <div className="col-3">
+                        <div className="ProductCard">
+                            <div className="ProductCard-image">
+                                <img src="https://oechsle.vteximg.com.br/arquivos/ids/2932928/1792953.jpg" width="250px" height="250px"/>
                             </div>
                             <div className="detalle">
-                                <p>
-                                    {item.ropa} ropa de hombre - abrigo azul 
-                                </p>
+                                <span class="ProductName">
+                                    <span class="ProductName-primary">
+                                    {item.ropa}
+                                    </span>
+                                    <span class="ProductName-alt">
+                                        GENERO
+                                            <span class="ProductName-separator">•
+                                            </span>
+                                        COLOR
+                                    </span>
+                                    </span>
+
                                 <div className="content-button">
-                                    <button style={{marginRight: '16px'}} onClick={this.handleSubmit}>Comprar</button>
-                                    <button  onClick={this.handleSubmit}>ver detalle</button>
+                                    <button className="btn-oe btn-oe-pay" onClick={this.handleSubmit}>Comprar</button>
+                                    <button className="btn-oe btn-oe-pay" onClick={this.handleSubmit}>Ver detalle</button>
                                 </div>
                             </div>
                             
                         </div>
-                    </div>
+                </div>
                 )
         );
     }
@@ -41,7 +51,7 @@ class Listado extends React.Component{
     render() {
         const {list} = this.props 
         return (
-          <div className="listado">
+          <div className="row">
                 {this.item(list)}
           </div>
         );
