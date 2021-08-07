@@ -1,16 +1,44 @@
-
+import Head from '../head/head';
+import Footer from '../footer/footer';
 import React from 'react';
 
 function checkout() {
     return (
+
 <div>
-<h2>Responsive Checkout Form</h2>
-<p>Resize the brow2ser window to see the effect. When the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other.</p>
+<Head/>
+<div className="checkout">
+
+<div className="react-home react-checkout">
+            <div className="react-input-box">
+
+                <div className="container">
+                    <div className="stepwizard">
+                        <div className="row step-row">
+                            <div className="col-4">
+                                <a className="btn btn-primary button-no-gradient btn-circle btn-step">1</a>
+                                <p>Detalle</p>
+                            </div>
+                            <div className="col-4">
+                                <a className="btn btn-default button-no-gradient btn-circle" disabled="disabled">2</a>
+                                <p>Resumen</p>
+                            </div>
+                            <div className="col-4">
+                                <a className="btn btn-default button-no-gradient btn-circle" disabled="disabled">3</a>
+                                <p>Compra</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+
+<h2>PÁGINA DE PAGO</h2>
+<p>COMPRA TOTALMENTE SEGURA.</p>
 <div className="row2">
   <div className="col-75">
     <div className="container">
       <form action="">
-      
         <div className="row2">
           <div className="col-50">
             <h3>Billing Address</h3>
@@ -82,10 +110,9 @@ function checkout() {
     </div>
   </div>
 </div>
-      
-      
-      
-      </div>
+</div>
+<Footer/>  
+</div>
 
     );
   }

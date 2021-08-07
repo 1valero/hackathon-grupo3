@@ -1,3 +1,8 @@
+  .checkout{
+    max-width: 1200px;
+    margin: auto;
+  }
+  
   .row2 {
     display: -ms-flexbox; /* IE10 */
     display: flex;
@@ -27,14 +32,14 @@
     padding: 0 16px;
   }
   
-  /*.container {
+  .checkout .container {
     background-color: #f2f2f2;
     padding: 5px 20px 15px 20px;
     border: 1px solid lightgrey;
     border-radius: 3px;
-  }*/
+  }
   
-  input[type=text] {
+  .checkout input[type=text] {
     width: 100%;
     margin-bottom: 20px;
     padding: 12px;
@@ -42,7 +47,7 @@
     border-radius: 3px;
   }
   
-  label {
+  .checkout label {
     margin-bottom: 10px;
     display: block;
   }
@@ -53,7 +58,7 @@
     font-size: 24px;
   }
   
-  .btn {
+  .checkout .btn {
     background-color: #04AA6D;
     color: white;
     padding: 12px;
@@ -65,19 +70,19 @@
     font-size: 17px;
   }
   
-  .btn:hover {
+  .checkout .btn:hover {
     background-color: #45a049;
   }
   
-  a {
+  .checkout a {
     color: #2196F3;
   }
   
-  hr {
+  .checkout hr {
     border: 1px solid lightgrey;
   }
   
-  span.price {
+  .checkout span.price {
     float: right;
     color: grey;
   }
@@ -90,4 +95,15 @@
     .col-25 {
       margin-bottom: 20px;
     }
+  }
+
+  .step-row:before {
+    top: 115px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 1000px;
+    height: 3px;
+    right: 170px;
+    background-color: #ccc;
   }
