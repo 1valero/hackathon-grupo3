@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b4241c02c068e8b8a9e61f4dbb2b8e0",
+    "content-hash": "8f4e2b53971d0df86ee3067201491b34",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3010,6 +3010,57 @@
                 "source": "https://github.com/rize/UriTemplate/tree/0.3.3"
             },
             "time": "2021-02-22T15:03:38+00:00"
+        },
+        {
+            "name": "superbalist/flysystem-google-storage",
+            "version": "7.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Superbalist/flysystem-google-cloud-storage.git",
+                "reference": "87e2f450c0e4b5200fef9ffe6863068cc873d734"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Superbalist/flysystem-google-cloud-storage/zipball/87e2f450c0e4b5200fef9ffe6863068cc873d734",
+                "reference": "87e2f450c0e4b5200fef9ffe6863068cc873d734",
+                "shasum": ""
+            },
+            "require": {
+                "google/cloud-storage": "~1.0",
+                "league/flysystem": "~1.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Superbalist\\Flysystem\\GoogleStorage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Superbalist.com a division of Takealot Online (Pty) Ltd",
+                    "email": "info@superbalist.com"
+                }
+            ],
+            "description": "Flysystem adapter for Google Cloud Storage",
+            "support": {
+                "issues": "https://github.com/Superbalist/flysystem-google-cloud-storage/issues",
+                "source": "https://github.com/Superbalist/flysystem-google-cloud-storage/tree/7.2.2"
+            },
+            "time": "2019-10-10T12:22:54+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
