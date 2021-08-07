@@ -7,6 +7,7 @@ class head extends React.Component{
         this.state = {value: ''}
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleCarrito = this.handleCarrito.bind(this);
 
     }
 
@@ -17,6 +18,11 @@ class head extends React.Component{
     handleSubmit(event) {
       //useHistory.history.push("/camera");
       window.location.href='/camera'
+    }
+
+    handleCarrito(event) {
+      //useHistory.history.push("/camera");
+      window.location.href='/carrito'
     }
 
     render() {
@@ -41,11 +47,14 @@ class head extends React.Component{
                         ><img src="/assets/lupa.png" width="15" height="15" /></button>
                     </div>
                   </div>
-                  <div style={{width: '20%'}}>
-                    
-                    <button className="camera" type="submit" 
+                  <div style={{width: '20%',display: 'flex'}}>
+                    <button style={{cursor: 'pointer'}} className="camera" type="submit" 
                         onClick={this.handleSubmit}>
                       <img src="/assets/icon_camera.png" width="15" height="15" />
+                      </button>
+
+                      <button style={{marginLeft:'16px', cursor: 'pointer'}} onClick={this.handleCarrito} >
+                        <img src="/assets/icon_car.png" width="15" height="15" />
                       </button>
                   </div>
                   

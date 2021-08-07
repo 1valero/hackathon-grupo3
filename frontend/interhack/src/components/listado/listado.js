@@ -1,20 +1,48 @@
-import React from 'react';
+import React,{Component} from 'react';
 
-class Listado extends React.Component{
+class Listado extends Component{
     constructor(props){
-        super(props)
-        this.state = {value: ''}
+        super(props);
+        this.state = {
+            carrito: []
+        }
+        this.carrito = [];
+        this.handleSubmitAgregar = this.handleSubmitAgregar.bind(this);
     }
 
     /*handleChange(event) {
         this.setState({value: event.target.value});
       }*/
+
+    componentDidMount() {
+        var carrito_storage =  localStorage.getItem('carrito');
+        if(carrito_storage){
+            carrito_storage = JSON.parse(carrito_storage);
+            this.setState((prevState) => ({
+                carrito: carrito_storage
+              }));
+        }
+    }
+
     
-    handleSubmit(event) {
+    handleSubmitAgregar(item) {
+        //window.location.href='/detalle'
+        var carrito_storage = [];
+        this.setState((prevState) => ({
+            carrito: [...prevState.carrito, item]
+          }));
+
+          carrito_storage = [ ...this.state.carrito, item];
+        
+        localStorage.setItem("carrito", JSON.stringify(carrito_storage));
+
+    }
+
+    handleSubmitDetalle(event) {
         window.location.href='/detalle'
     }
 
-    item(data){
+    item(data,boolCarrito){
         return(
             data.map(item=>
                 <div className="col-3">
@@ -35,11 +63,17 @@ class Listado extends React.Component{
                                             {'S/ ' + item.price}
                                     </span>
                                     </span>
-
-                                <div className="content-button">
-                                    <button className="btn-oe btn-oe-pay" onClick={this.handleSubmit}>Comprar</button>
-                                    <button className="btn-oe btn-oe-pay" onClick={this.handleSubmit}>Ver detalle</button>
-                                </div>
+                                {
+                                    boolCarrito != "true" ? <>
+                                        <div className="content-button">
+                                    
+                                            <button className="btn-oe btn-oe-pay" onClick={() => {this.handleSubmitAgregar(item)}}>Agregar</button>
+                                            <button className="btn-oe btn-oe-pay" onClick={this.handleSubmitDetalle}>Ver detalle</button>
+                                        </div> 
+                                    </> 
+                                    : <></>
+                                }
+                                
                             </div>
                             
                         </div>
@@ -51,10 +85,10 @@ class Listado extends React.Component{
     
 
     render() {
-        const {list} = this.props 
+        const {list,boolCarrito} = this.props 
         return (
           <div className="row">
-                {this.item(list)}
+                {this.item(list,boolCarrito)}
           </div>
         );
       }
