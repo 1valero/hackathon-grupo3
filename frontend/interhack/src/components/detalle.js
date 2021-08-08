@@ -97,11 +97,12 @@ class Detalle extends React.Component{
   render(){
     const {products, index} = this.state;
     return(
-      <div className="app">
+      <div className="">
          <Head/>
         {
           products.map(item =>(
-            <div className=" pdp-images" key={item._id}>
+            <div className="pdp-images" key={item._id}>
+              <div className="app">
 
               
               <div className="row">
@@ -163,7 +164,8 @@ class Detalle extends React.Component{
               <h3 className="title center">DETALLE DEL PRODUCTO</h3><p>{item.description}</p>
               <h4 className="title center">TÉCNOLOGÍA</h4><p>{item.content}</p>
             </div>
-         
+            </div>
+            
                       <Footer/>
                          
             
