@@ -3,6 +3,9 @@ import Footer from '../footer/footer';
 import React from 'react';
 
 function thankyou() {
+
+	window.localStorage.removeItem("carrito");
+
     return (
 
 <div>

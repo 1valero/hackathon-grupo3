@@ -10,7 +10,9 @@ function Index() {
         <div>
           <WebCamCustom/>
         </div>
-         <Footer/>
+        <div style={{marginTop: '100px'}}>
+          <Footer/>
+        </div>
     </div>
   );
 }

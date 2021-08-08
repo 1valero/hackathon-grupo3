@@ -29,7 +29,7 @@ class WebCamCustom extends Component {
 
   state = {
     url: null,
-    NewZipPic: null,
+    loaded: false,
     URLArray: []
   };
 
@@ -39,10 +39,8 @@ class WebCamCustom extends Component {
         .query({ name: "camera" })
         .then((permissionObj) => {
           if (permissionObj.state !== "granted") {
-            // Show how to grant accress right to browser
             alert("habilite los permisos de cámara");
           }
-          console.log(permissionObj.state);
         })
         .catch((error) => {
           console.log("Got error :", error);
@@ -58,33 +56,25 @@ class WebCamCustom extends Component {
   };
 
   capturePhoto = () => {
+
     const imageSrc = this.webcamRef.current.getScreenshot();
     const file = this.dataURItoBlob(imageSrc);
-    console.log(file);
-    //const formData = new FormData();
-    //formData.append('upload', file, 'image.jpg') 
-    //this.compressPhoto(imageSrc);
     this.getImage(file);
-    };
+  };
     
     getImage(pic){
-      this.setState({ url: pic}, () =>
+      this.setState({ url: pic, loaded: true}, () =>
           this.savePhoto()
       );
     }
 
   dataURItoBlob(dataURI) {
-    // convert base64/URLEncoded data component to raw binary data held in a string
     var byteString;
     if (dataURI.split(',')[0].indexOf('base64') >= 0)
         byteString = atob(dataURI.split(',')[1]);
     else
         byteString = unescape(dataURI.split(',')[1]);
-
-    // separate out the mime component
     var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-
-    // write the bytes of the string to a typed array
     var ia = new Uint8Array(byteString.length);
     for (var i = 0; i < byteString.length; i++) {
         ia[i] = byteString.charCodeAt(i);
@@ -95,21 +85,17 @@ class WebCamCustom extends Component {
 
   savePhoto = () => {
     var imageSrc = this.state.url;
-    /*this.setState((prevState) => ({
-        URLArray: [...prevState.URLArray, imageSrc]
-      }));*/
       this.request(imageSrc);
   };
 
     
   handleChange(event) {
+    this.setState({loaded: true});
     this.request(event.target.files[0]);
   }
 
   request(img){
-    
-    console.log("getImage");
-    console.log(img);
+  
     var formData = new FormData();
     formData.append("file", img);
 
@@ -120,7 +106,6 @@ class WebCamCustom extends Component {
           //'Content-Type': 'multipart/form-data',
         },
         body: 
-          //url: 'https://oechsle.vteximg.com.br/arquivos/ids/4116074-800-800/1584075.jpg?v=637610764419600000',
           formData
         
     })
@@ -128,6 +113,7 @@ class WebCamCustom extends Component {
         .then((json) => {
             console.log(json.success.data);
             localStorage.setItem("resultados_busqueda", JSON.stringify(json.success.data))
+            this.setState({loaded: false})
             window.location.href='/resultados';
         })
       .catch((error) => {
@@ -136,7 +122,6 @@ class WebCamCustom extends Component {
   };
 
   selectPic = (pic) => {
-    //click pic to select that pic, and remove others
     const picIndex = this.state.URLArray.indexOf(pic);
     console.log(picIndex);
     if (picIndex > -1) {
@@ -150,36 +135,26 @@ class WebCamCustom extends Component {
     return (
       <>
         <Webcam
-          //https://www.npmjs.com/package/react-webcam
           ref={this.webcamRef}
           audio={false}
-          screenshotQuality={1} // set the Quality of camera (0-1)
+          screenshotQuality={1} 
           forceScreenshotSourceSize
-          // screenshotFormat="image/png"
           screenshotFormat="image/jpeg"
           className="webCam"
-          videoConstraints={videoConstraints} //cameraSetting,eg:resolution, use which camera
-          // onUserMedia={(e) => console.log(e)} // show info of media stream
+          videoConstraints={videoConstraints}
         />
-        <div style={{display: 'flex'}}>
-            <div style={{width: '50%', marginRight:'16px'}}>
-                <button style={{float: 'right'}} onClick={this.capturePhoto}>Tomar foto</button>
+        <div className="contentButtonWebCam">
+            <div className="primer_boton">
+              {this.state.loaded ? <img src="/assets/loading.gif" width="120" height="100" /> :
+                <button className="btn-oe btn-oe-pay" onClick={this.capturePhoto}>Tomar foto</button>
+              }
             </div>
-            <div style={{width: '50%'}}>
-                <input type="file" name="file" style={{float: 'left'}} onChange={this.handleChange} />
+            <div className="segundo_boton">
+            {this.state.loaded ? <img src="/assets/loading.gif" width="120" height="100" /> :
+                <input type="file" name="file"  onChange={this.handleChange} />
+            }
             </div>
         </div>
-        
-        {/*this.state.URLArray.map((x) => (
-          <div id={x}>
-            <img
-              className="webCam"
-              src={x} //show pic in state
-              alt="Screenshot"
-              onClick={() => this.selectPic(x)} // click pic to select that pic, and remove others
-            />
-          </div>
-        ))*/}
       </>
     );
   }
