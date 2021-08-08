@@ -32,7 +32,6 @@ class Detalle extends React.Component{
         "count": 1
       }
     ],
-    //products: [],
     index: 0
   };
 
@@ -88,7 +87,6 @@ class Detalle extends React.Component{
   };
 
   handleSubmitAgregar(item) {
-      //window.location.href='/detalle'
       var carrito_storage = [];
       this.setState((prevState) => ({
           carrito: [...prevState.carrito, item]
@@ -109,7 +107,6 @@ class Detalle extends React.Component{
          <Head/>
         {
           this.state.loaded?
-          //products.map(item =>(
             <div className=" pdp-images" key={item._id}>
 
               
@@ -118,7 +115,6 @@ class Detalle extends React.Component{
               <DetailsThumb images={item.scr} tab={this.handleTab} myRef={this.myRef} />
               <div className="big-img">
                 {
-                    /*<img src={item.src} alt=""/>*/
                     <img src={
                       item.scr.map((img,index) =>(
                         index == 0 ?
@@ -149,11 +145,6 @@ class Detalle extends React.Component{
                 <div className="fw-bold col-6"><span>Online:</span></div>
                 <div className="fw-bold col-6"><span>s/{item.price}</span></div>
                 </div>
-
-                {/*<ul className="topic">
-                <li className="space-color-pd">Color: </li>
-                <Colors colors={item.colors} />
-              </ul>*/}
                 
                 <ul className="topic">
                 <li className="space-color-pd">Talla: </li>
@@ -182,7 +173,6 @@ class Detalle extends React.Component{
 
             <div className="row infp-product text-prod">
               <h3 className="title center">DETALLE DEL PRODUCTO</h3><p>{item.description}</p>
-              <h4 className="title center">TÉCNOLOGÍA</h4><p>{item.content}</p>
             </div>
          
                       <Footer/>
@@ -190,7 +180,6 @@ class Detalle extends React.Component{
             
             </div>
           
-          //)) 
           : "Cargando..."
         }
       </div>
