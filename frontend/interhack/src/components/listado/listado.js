@@ -37,7 +37,8 @@ class Listado extends Component{
 
     }
 
-    handleSubmitDetalle(event) {
+    handleSubmitDetalle(item) {
+        localStorage.setItem("detalle", JSON.stringify(item));
         window.location.href='/detalle'
     }
 
@@ -67,7 +68,7 @@ class Listado extends Component{
                                         <div className="content-button">
                                     
                                             <button className="btn-oe btn-oe-pay" onClick={() => {this.handleSubmitAgregar(item)}}>Agregar</button>
-                                            <button className="btn-oe btn-oe-pay" onClick={this.handleSubmitDetalle}>Ver detalle</button>
+                                            <button className="btn-oe btn-oe-pay" onClick={() => {this.handleSubmitDetalle(item)}}>Ver detalle</button>
                                         </div> 
                                     </> 
                                     : <></>

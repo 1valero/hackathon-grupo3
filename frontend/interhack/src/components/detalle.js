@@ -28,6 +28,7 @@ class Detalle extends React.Component{
         "count": 1
       }
     ],
+    //products: [],
     index: 0
   };
 
@@ -53,7 +54,31 @@ class Detalle extends React.Component{
             carrito: carrito_storage
           }));
     }
+    
+    /*var detalle =  localStorage.getItem('detalle');
+    detalle = JSON.parse(detalle);
+
+    this.requestCross(detalle.productId);*/
   }
+
+  requestCross(id){
+    
+    fetch('https://ir-hkt-equipo-03.rj.r.appspot.com/product/search/skus/'+ id,{
+        crossDomain:true,
+        method: 'GET'
+        
+    })
+      .then((response) => response.json())
+        .then((json) => {
+            console.log(json.success.data);
+            localStorage.setItem("resultados_detalle_producto", JSON.stringify(json.success.data));
+            this.setState({products: json.success.data});
+
+        })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   handleSubmitAgregar(item) {
       //window.location.href='/detalle'
