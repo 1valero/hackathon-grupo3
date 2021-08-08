@@ -103,13 +103,13 @@ class Detalle extends React.Component{
     const {products, index} = this.state;
     var item = products[0];
     return(
-      <div className="app">
+      <div className="">
          <Head/>
         {
           this.state.loaded?
             <div className=" pdp-images" key={item._id}>
 
-              
+              <div className="app">
               <div className="row">
               <div className="col-7">
               <DetailsThumb images={item.scr} tab={this.handleTab} myRef={this.myRef} />
@@ -172,10 +172,12 @@ class Detalle extends React.Component{
 
 
             <div className="row infp-product text-prod">
-              <h3 className="title center">DETALLE DEL PRODUCTO</h3><p>{item.description}</p>
+              <h3 className="title center">DETALLE DEL PRODUCTO</h3><br/><p>{item.description}</p>
             </div>
-         
-                      <Footer/>
+             </div>        
+            
+            
+            <Footer/>
                          
             
             </div>
