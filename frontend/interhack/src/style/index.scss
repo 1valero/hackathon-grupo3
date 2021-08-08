@@ -126,24 +126,17 @@ body{
     
   }
 }
-  .search-container input{
-    position: relative;
-    outline: transparent;
-    vertical-align: middle;
-    z-index: 6;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    -webkit-transition: 0.5s !important;
-    -o-transition: 0.5s !important;
-    transition: 0.5s !important;
-    background: #fff;
-    border: 0;
-    padding: 13px 50px 13px 20px;
-    font-size: 14px;
-    color: #444 !important;
-    width: 100%;
-    border-radius: 20px;
+ .search-container input{
+   border-top-left-radius: 20px 20px;
+   border-bottom-left-radius: 20px 20px;
   }
+
+  .iconcamara .camera{
+    border-top-right-radius: 20px 20px;
+    border-bottom-right-radius: 20px 20px;
+   }
+
+
   .title-category {
     display: flex;
     align-items: center;

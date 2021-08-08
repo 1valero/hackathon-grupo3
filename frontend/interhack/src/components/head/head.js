@@ -1,5 +1,14 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faCamera, faSearch, faShoppingCart, faStore, faUser } from '@fortawesome/free-solid-svg-icons';
+
+
 import { useHistory } from 'react-router-dom';
+
+library.add(fab, faSearch, faShoppingCart, faCamera, faUser, faStore)
 
 class head extends React.Component{
     constructor(props){
@@ -78,22 +87,43 @@ class head extends React.Component{
                         /*onKeyDown={this.handleKey}*/
                         name="search"
                         />
-                        <button type="button" 
-                        style={{width: '20%'} }
-                        onClick={()=>this.handlebuscar()}
-                        ><img src="/assets/lupa.png" width="15" height="15" /></button>
+                        
+                        <div className="">
+                            <button type="button" onClick={()=>this.handlebuscar()}                        >
+                              <FontAwesomeIcon icon={faSearch} />
+                            </button>
+                        </div>
+
+                        <div className="iconcamara">
+                            <button style={{cursor: 'pointer'}} className="camera" type="submit" onClick={ this.handleSubmit}>
+                              <FontAwesomeIcon icon={faCamera} />
+                            </button>
+                        </div>
+
                     </div>
                   </div>
-                  <div style={{width: '20%',display: 'flex'}}>
-                    <button style={{cursor: 'pointer'}} className="camera" type="submit" 
-                        onClick={ this.handleSubmit}>
-                      <img src="/assets/icon_camera.png" width="15" height="15" />
-                      </button>
 
-                      <button style={{marginLeft:'16px', cursor: 'pointer'}} onClick={this.handleCarrito} >
-                        <img src="/assets/icon_car.png" width="15" height="15" />
+
+                  
+
+                  
+                  <div className="">
+                      <button onClick={this.handleStore} >
+                        <FontAwesomeIcon icon={faStore} size="s" />
                       </button>
                   </div>
+
+                  <div className="">
+                      <button onClick={this.handleUser} >
+                        <FontAwesomeIcon icon={faUser} size="s" />
+                      </button>
+                  </div>
+                  
+                  <div className="">
+                      <button onClick={this.handleCarrito} >
+                        <FontAwesomeIcon icon={faShoppingCart} size="s" />
+                      </button>
+                  </div>        
                   
                 </div>
           </div>

@@ -44,6 +44,9 @@ function Index() {
   return (
     <div className="App">
       <Head/>
+
+      <div className="banner"><img className="banner" src="https://oechsle.vteximg.com.br/arquivos/Cintillo_express-desktop-b.png"/></div>
+
       <div className="banner">
           <img className="banner" src={large} srcSet={`${large} 768w, ${small} 1280w`} sizes="(min-width: 960px) 540px, 100vw"/>
       </div>
