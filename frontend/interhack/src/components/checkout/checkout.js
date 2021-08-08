@@ -3,6 +3,14 @@ import Footer from '../footer/footer';
 import React from 'react';
 
 function checkout() {
+
+  var carrito =  localStorage.getItem('carrito');
+  carrito = JSON.parse(carrito);
+
+  function handleFinalizar(evt){
+    window.location.href='/thankyou';
+  }
+
     return (
 
 <div>
@@ -42,13 +50,13 @@ function checkout() {
         <div className="row2">
           <div className="col-50">
             <h3>Dirección de Envío</h3>
-            <label for="fname"><i className="fa fa-user"></i> Full Name</label>
+            <label for="fname"><i className="fa fa-user"></i> Usuario comprador</label>
             <input type="text"  placeholder="John M. Doe"/>
-            <label for="email"><i className="fa fa-envelope"></i> Email</label>
+            <label for="email"><i className="fa fa-envelope"></i> Correo</label>
             <input type="text" placeholder="john@example.com"/>
-            <label for="adr"><i className="fa fa-address-card-o"></i> Address</label>
+            <label for="adr"><i className="fa fa-address-card-o"></i> Dirección</label>
             <input type="text" placeholder="542 W. 15th Street"/>
-            <label for="city"><i className="fa fa-institution"></i> City</label>
+            <label for="city"><i className="fa fa-institution"></i> Ciudad</label>
             <input type="text"  placeholder="New York"/>
 
             <div className="row2">
@@ -65,22 +73,22 @@ function checkout() {
 
           <div className="col-50">
             <h3>Método de Pago</h3>
-            <label for="fname">Accepted Cards</label>
+            <label for="fname">Aceptamos</label>
             <div className="icon-container">
               <i className="fa fa-cc-visa"></i>
               <i className="fa fa-cc-amex"></i>
               <i className="fa fa-cc-mastercard"></i>
               <i className="fa fa-cc-discover"></i>
             </div>
-            <label for="cname">Name on Card</label>
+            <label for="cname">Nombre de la Tarjeta</label>
             <input type="text"  placeholder="John More Doe"/>
-            <label for="ccnum">Credit card number</label>
+            <label for="ccnum">Número de Tarjeta</label>
             <input type="text" placeholder="1111-2222-3333-4444"/>
-            <label for="expmonth">Exp Month</label>
+            <label for="expmonth">Mes de expiración</label>
             <input type="text"  placeholder="September"/>
             <div className="row2">
               <div className="col-50">
-                <label for="expyear">Exp Year</label>
+                <label for="expyear">Año de expiración</label>
                 <input type="text"  placeholder="2018"/>
               </div>
               <div className="col-50">
@@ -92,21 +100,22 @@ function checkout() {
           
         </div>
         <label>
-          <input type="checkbox" checked="checked" /> Shipping address same as billing
+          <input type="checkbox" checked="checked" /> Aceptar los terminos y condiciones de uso
         </label>
-        <input type="submit" value="Continue to checkout" className="btn"/>
+        <input type="button" value="Confirmar compra" className="btn" onClick={() => handleFinalizar()}/>
       </form>
     </div>
   </div>
   <div className="col-25">
     <div className="container">
-      <h4>Resumen <span className="price"><i className="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-      <p><a href="#">Product 1</a> <span className="price">$15</span></p>
-      <p><a href="#">Product 2</a> <span className="price">$5</span></p>
-      <p><a href="#">Product 3</a> <span className="price">$8</span></p>
-      <p><a href="#">Product 4</a> <span className="price">$2</span></p>
+      <h4>Resumen <span className="price"><i className="fa fa-shopping-cart"></i> <b>{carrito.length}</b></span></h4>
+      {
+        carrito.map(item => 
+            <p>{item.productName}<span className="price">S/ {item.price}</span></p>
+          )
+      }
       <hr/>
-      <p>Total <span className="price"><b>$30</b></span></p>
+      {/*<p>Total <span className="price"><b>$30</b></span></p>*/}
     </div>
   </div>
 </div>

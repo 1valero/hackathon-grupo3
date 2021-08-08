@@ -4,14 +4,12 @@ class Listado extends Component{
     constructor(props){
         super(props);
         this.state = {
-            carrito: []
+            carrito: [],
+            list: [],
+            loaded : false
         }
         this.handleSubmitAgregar = this.handleSubmitAgregar.bind(this);
     }
-
-    /*handleChange(event) {
-        this.setState({value: event.target.value});
-      }*/
 
     componentDidMount() {
         var carrito_storage =  localStorage.getItem('carrito');
@@ -21,7 +19,29 @@ class Listado extends Component{
                 carrito: carrito_storage
               }));
         }
+
+        this.requestCross(this.props.id);
     }
+
+    
+
+    requestCross(id){
+        
+        fetch('https://ir-hkt-equipo-03.rj.r.appspot.com/product/cross-selling/'+ id,{
+            crossDomain:true,
+            method: 'GET'
+            
+        })
+        .then((response) => response.json())
+            .then((json) => {
+                localStorage.setItem("resultados_busqueda_cross", JSON.stringify(json.success.data))
+                this.setState({list: json.success.data, loaded: true});
+            })
+        .catch((error) => {
+            console.error(error);
+        });
+    };
+
 
     
     handleSubmitAgregar(item) {
@@ -42,7 +62,7 @@ class Listado extends Component{
         window.location.href='/detalle'
     }
 
-    item(data,boolCarrito){
+    item(data){
         return(
             data.map(item=>
                 <div className="col-3">
@@ -65,14 +85,13 @@ class Listado extends Component{
                                     </span>
                                     </span>
                                 {
-                                    boolCarrito != "true" ? <>
-                                        <div className="content-button">
-                                            <button className="btn-oe btn-oe-pay" onClick={() => {this.handleSubmitAgregar(item)}}>Agregar</button>
-                                            <button className="btn-oe btn-line-link" onClick={() => {this.handleSubmitDetalle(item)}}>Ver detalle</button>
+                                    <div className="content-button">
+                                        <button className="btn-oe btn-oe-pay" onClick={() => {this.handleSubmitAgregar(item)}}>Agregar</button>
+                                        <button className="btn-oe btn-line-link" onClick={() => {this.handleSubmitDetalle(item)}}>Ver detalle</button>
 
-                                        </div> 
-                                    </> 
-                                    : <></>
+                                    </div> 
+                                    
+                                    
                                 }
                                 
                             </div>
@@ -80,30 +99,27 @@ class Listado extends Component{
                         </div>
                 </div>
                 )
-        );
+        ); 
     }
 
     
 
     render() {
-        const {list,boolCarrito} = this.props 
+        const {list} = this.state 
         return (
           <div className="row">
-                {this.item(list,boolCarrito)}
+              <div style={{width: '100%', margin: '8px'}}>
+                  <h3><b>¡Completa tu look! Te damos estas sugerencias</b></h3>
+              </div>
+
+                {
+                this.state.loaded ?  
+                    this.item(list)
+                : "Cargando ..."
+                }
           </div>
         );
       }
-
-      /*                   
-      <div className="cards">
-        <div className="content-card">
-            <div className="img">
-                <img src={item.image} width="50" height="50"/>
-            </div>
-    <div className="detalle">
-        <p>
-            {item.productId} {item.productName} {'S/ ' + item.price}
-            </p>*/
 
 }
 

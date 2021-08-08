@@ -3,12 +3,15 @@ import Footer from '../footer/footer';
 import Colors from './Colors'
 import DetailsThumb from './DetailsThumb';
 import Head from '../head/head';
+import CrossLook from '../crossLook/crossLook';
+
 
 class Detalle extends React.Component{
-
+  
   state = {
     carrito: [],
     loaded: false,
+    detalle: JSON.parse(localStorage.getItem('detalle')),
     products: [
       {
         "_id": "1",
@@ -74,7 +77,6 @@ class Detalle extends React.Component{
     })
       .then((response) => response.json())
         .then((json) => {
-            console.log(json.success.data);
             localStorage.setItem("resultados_detalle_producto", JSON.stringify(json.success.data));
             this.setState({products: json.success.data, loaded: true});
             const {index} = this.state;
@@ -82,7 +84,6 @@ class Detalle extends React.Component{
 
         })
       .catch((error) => {
-        console.error(error);
       });
   };
 
@@ -166,14 +167,15 @@ class Detalle extends React.Component{
                 </div>               
                 
                 
-                <button className="btn-oe btn-oe-addtocart" onClick={() => {this.handleSubmitAgregar(item)}}>Agregar a Carrito</button>
+                <button className="btn-oe btn-oe-addtocart" onClick={() => {this.handleSubmitAgregar(this.state.detalle)}}>Agregar a Carrito</button>
 
               </div>
 
               </div></div>
 
               <div className="row infp-product text-prod">
-              <h3 className="title center">Completa tu look</h3><p>{item.description}</p>
+              <CrossLook id={this.state.detalle.productId}/>
+
               
             </div>
 
