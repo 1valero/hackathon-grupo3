@@ -66,9 +66,9 @@ class Listado extends Component{
                                 {
                                     boolCarrito != "true" ? <>
                                         <div className="content-button">
-                                    
                                             <button className="btn-oe btn-oe-pay" onClick={() => {this.handleSubmitAgregar(item)}}>Agregar</button>
-                                            <button className="btn-oe btn-oe-pay" onClick={() => {this.handleSubmitDetalle(item)}}>Ver detalle</button>
+                                            <button className="btn-oe btn-line-link" onClick={() => {this.handleSubmitDetalle(item)}}>Ver detalle</button>
+
                                         </div> 
                                     </> 
                                     : <></>
