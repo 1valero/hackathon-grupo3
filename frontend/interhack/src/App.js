@@ -4,6 +4,7 @@ import './style/productdetail.css';
 import './style/grid.css';
 import './style/footer.css';
 import './style/listado.css';
+import './style/thankyou.css';
 import './style/index.scss';
 import './style/checkout.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -13,6 +14,7 @@ import Camera from './components/webCam/index';
 import Checkout from './components/checkout/checkout';
 import ListadoProducto from './components/listadoProductos/listadoProductos';
 import Carrito from './components/carritoCompras/carritoCompras';
+import Thankyou from './components/thankyou/thankyou';
 
 function App() {
   return (
@@ -34,6 +36,11 @@ function App() {
           <Route path="/checkout">
             <Checkout/>
           </Route>
+
+          <Route path="/thankyou">
+            <Thankyou/>
+          </Route>
+
           <Route path="/">
             <Home />
           </Route>

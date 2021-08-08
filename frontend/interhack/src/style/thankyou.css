@@ -1,0 +1,92 @@
+.thankyoupage2 div.cHeaderBanner {
+    background-color: #f5f6f7;
+}
+
+.thankyoupage2 div.cHeaderBanner h1 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 65px;
+    align-items: center;
+    text-align: center;
+    color: #444;
+    padding-top: 51px;}
+
+
+.thankyoupage2 div.cHeaderBanner span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    align-items: center;
+    text-align: center;
+    color: #444;
+    display: block;
+    padding-bottom: 51px;
+}
+
+.thankyoupage2>div>div.mb4 {
+    margin-bottom: 8px;
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+}
+
+
+.thankyoupage2>div.center {
+    padding: 0;
+    background: #fff;
+}
+
+.thankyoupage2 .h2 .titulo_pasos {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    display: flex;
+    align-items: center;
+    color: #3ab1c7;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+ul.items_pasos {
+    list-style-type: none;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+ul.items_pasos li.item_paso {
+    display: block;
+    align-items: flex-start;
+    margin-bottom: 9px;
+}
+
+ul.items_pasos li.item_paso span.paso {
+    color: #fff;
+    border-radius: 50%;
+    border: solid 2px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #3ab1c7;
+    padding: 5px 10px;
+}
+
+ul.items_pasos li.item_paso .des_paso {
+    line-height: 19px;
+    font-size: 14px;
+    padding-left: 7px;
+    max-width: 490px;
+    display: inline-block;
+    vertical-align: top;
+    width: auto;
+}
+
+.widthtkp{
+    width: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
