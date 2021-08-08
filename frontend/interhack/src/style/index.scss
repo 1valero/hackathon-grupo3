@@ -155,6 +155,10 @@ body{
   margin: auto;
 }
 
+.logo-principal{
+  width: 40%;
+}
+
 @media only screen and (max-width: 1200px){
   .ft-box-social .container {
       display: block;
@@ -171,3 +175,17 @@ body{
   .ft-box-social .container p {
       margin: 20px 0!important;
   }}
+
+
+  @media (max-width: 500px){
+          .head .topnav {
+        padding: 1px;}
+
+        .logo-principal{
+          width: 80%;
+        }
+        
+        .head .topnav a, .head .topnav input[type=text], .head .topnav .search-container button {
+        margin: 0;
+        padding: 7px;}        
+  }

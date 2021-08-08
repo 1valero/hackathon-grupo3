@@ -9,7 +9,7 @@ import './style/index.scss';
 import './style/checkout.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/home/index';
-import Detalle from './components/detalle';
+import Detalle from './components/productpage/detalle';
 import Camera from './components/webCam/index';
 import Checkout from './components/checkout/checkout';
 import ListadoProducto from './components/listadoProductos/listadoProductos';

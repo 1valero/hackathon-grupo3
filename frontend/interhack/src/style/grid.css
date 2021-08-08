@@ -147,4 +147,8 @@ hr {
       flex: 0 0 50%;
       max-width: 50%;
     }
+
+
+    .head .topnav {
+      padding: 1px;}
 }
