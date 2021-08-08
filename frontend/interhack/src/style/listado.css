@@ -7,6 +7,8 @@
     transition: border-color 0.25s, box-shadow 0.25s;
     display: flex;
     flex-direction: column;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 .ProductCard-image {
@@ -35,3 +37,6 @@
     margin-top: 0.95rem;
     color: #515151;
 }
+
+.btn-line-link {text-decoration: none;padding: 0 1px;padding-bottom: 3px;background-repeat: repeat-x;background-position: 0 2px;background-image: linear-gradient(to top, currentColor 3px, transparent 3px);transition: background-position 0.25s;}
+.btn-line-link:hover {background-position: 0 0;}
