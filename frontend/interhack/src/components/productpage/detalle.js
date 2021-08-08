@@ -1,8 +1,8 @@
 import React from 'react';
-import Footer from './footer/footer';
-import Colors from '../components/Colors'
-import DetailsThumb from '../components/DetailsThumb';
-import Head from './head/head';
+import Footer from '../footer/footer';
+import Colors from './Colors'
+import DetailsThumb from './DetailsThumb';
+import Head from '../head/head';
 
 class Detalle extends React.Component{
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
-import './style/productdetail.css';
-import './style/grid.css';
+import '../App.css';
+import '../style/productdetail.css';
+import '../style/grid.css';
 
 
 class App extends React.Component{
