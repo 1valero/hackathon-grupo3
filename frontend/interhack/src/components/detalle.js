@@ -8,6 +8,7 @@ class Detalle extends React.Component{
 
   state = {
     carrito: [],
+    loaded: false,
     products: [
       {
         "_id": "1",
@@ -44,9 +45,6 @@ class Detalle extends React.Component{
   };
 
   componentDidMount(){
-    const {index} = this.state;
-    this.myRef.current.children[index].className = "active";
-
     var carrito_storage =  localStorage.getItem('carrito');
     if(carrito_storage){
         carrito_storage = JSON.parse(carrito_storage);
@@ -54,11 +52,16 @@ class Detalle extends React.Component{
             carrito: carrito_storage
           }));
     }
-    
-    /*var detalle =  localStorage.getItem('detalle');
+
+    this.getDetalle();
+  
+  }
+
+  getDetalle(){
+    var detalle =  localStorage.getItem('detalle');
     detalle = JSON.parse(detalle);
 
-    this.requestCross(detalle.productId);*/
+    this.requestCross(detalle.productId);
   }
 
   requestCross(id){
@@ -72,7 +75,9 @@ class Detalle extends React.Component{
         .then((json) => {
             console.log(json.success.data);
             localStorage.setItem("resultados_detalle_producto", JSON.stringify(json.success.data));
-            this.setState({products: json.success.data});
+            this.setState({products: json.success.data, loaded: true});
+            const {index} = this.state;
+            this.myRef.current.children[index].className = "active";
 
         })
       .catch((error) => {
@@ -96,19 +101,32 @@ class Detalle extends React.Component{
 
   render(){
     const {products, index} = this.state;
+    var item = products[0];
     return(
       <div className="app">
          <Head/>
         {
-          products.map(item =>(
+          this.state.loaded?
+          //products.map(item =>(
             <div className=" pdp-images" key={item._id}>
 
               
               <div className="row">
               <div className="col-7">
-              <DetailsThumb images={item.src} tab={this.handleTab} myRef={this.myRef} />
+              <DetailsThumb images={item.scr} tab={this.handleTab} myRef={this.myRef} />
               <div className="big-img">
-                <img src={item.src[index]} alt=""/>
+                {
+                    /*<img src={item.src} alt=""/>*/
+                    <img src={
+                      item.scr.map((img,index) =>(
+                        index == 0 ?
+                          img.imageUrl
+                          : ""
+                      ))
+                    } alt="" 
+                    />
+                    
+                }
               </div>
               </div>          
 
@@ -130,10 +148,10 @@ class Detalle extends React.Component{
                 <div className="fw-bold col-6"><span>s/{item.price}</span></div>
                 </div>
 
-                <ul className="topic">
+                {/*<ul className="topic">
                 <li className="space-color-pd">Color: </li>
                 <Colors colors={item.colors} />
-                </ul>
+              </ul>*/}
                 
                 <ul className="topic">
                 <li className="space-color-pd">Talla: </li>
@@ -168,8 +186,9 @@ class Detalle extends React.Component{
                          
             
             </div>
-
-          ))
+          
+          //)) 
+          : "Cargando..."
         }
       </div>
 

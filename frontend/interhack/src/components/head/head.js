@@ -40,23 +40,24 @@ class head extends React.Component{
 
     requestBusqueda(txt,boolHome = false){
       console.log(txt);
-      fetch('https://ir-hkt-equipo-03.rj.r.appspot.com/product/search/by-text?text='+ txt,{
-          crossDomain:true,
-          method: 'GET'
-      })
-        .then((response) => response.json())
-          .then((json) => {
-              this.setState({loaded : true});
-              console.log(json.success.data);
-              localStorage.setItem("resultados_busqueda", JSON.stringify(json.success.data));
-              if(!boolHome){
+      if(!boolHome){
+        fetch('https://ir-hkt-equipo-03.rj.r.appspot.com/product/search/by-text?text='+ txt,{
+            crossDomain:true,
+            method: 'GET'
+        })
+          .then((response) => response.json())
+            .then((json) => {
+                this.setState({loaded : true});
+                console.log(json.success.data);
+                localStorage.setItem("resultados_busqueda", JSON.stringify(json.success.data)); 
                 window.location.href='/resultados';
-              }
-              
-          })
-        .catch((error) => {
-          console.error(error);
-        });
+                
+                
+            })
+          .catch((error) => {
+            console.error(error);
+          });
+        }
     };
 
     handleCarrito(event) {
@@ -80,7 +81,7 @@ class head extends React.Component{
                     <div className="search-container">
                         <input 
                         type="text" 
-                        placeholder="Search.."
+                        placeholder="buscar.."
                         style={{width: '80%'}}
                         onChange={this.handleChange}
                         value={this.state.value}

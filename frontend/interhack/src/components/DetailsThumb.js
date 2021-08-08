@@ -7,8 +7,9 @@ export class DetailsThumb extends Component {
             <div className="thumbs-positopm">
             <div className="thumb" ref={myRef}>
                 {
-                images.map((img, index) =>(
-                    <img src={img} alt="" key={index} 
+                    
+                images.map((img,index) =>(
+                    <img src={img.imageUrl} alt="" key={index} 
                     onClick={() => tab(index)}
                     />
                 ))
